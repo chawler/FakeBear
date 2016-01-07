@@ -130,7 +130,7 @@
     } else {
         [self.leftBtn setTitle:@"健身打卡" forState:UIControlStateNormal];
     }
-    self.leftBtn.enabled = self.leftBtn.enabled == (order.status > 0);
+    self.leftBtn.enabled = self.rightBtn.enabled = (order.status > 0);
 }
 
 - (UIImageView *)courseIcon

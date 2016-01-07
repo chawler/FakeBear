@@ -1,24 +1,25 @@
 //
-//	Course.h
+//  Course.h
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
 
-@interface Course : NSObject
 
-@property (nonatomic, strong) NSString * end;
-@property (nonatomic, strong) NSString * idField;
-@property (nonatomic, strong) NSString * name;
-@property (nonatomic, strong) NSObject * notice;
-@property (nonatomic, strong) NSString * start;
+@interface Course : NSObject <NSCoding, NSCopying>
+
+@property (nonatomic, strong) NSString *courseIdentifier;
+@property (nonatomic, strong) NSString *endProperty;
+@property (nonatomic, strong) NSString *notice;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSDate *start;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
--(NSDictionary *)toDictionary;
 @end

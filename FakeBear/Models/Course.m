@@ -1,116 +1,131 @@
 //
-//	Course.m
+//  Course.m
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
-
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
+//
 
 #import "Course.h"
+#import "NSDate+Helper.h"
+
+
+NSString *const kCourseId = @"id";
+NSString *const kCourseEnd = @"end";
+NSString *const kCourseNotice = @"notice";
+NSString *const kCourseName = @"name";
+NSString *const kCourseType = @"type";
+NSString *const kCourseStart = @"start";
+
 
 @interface Course ()
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+
 @end
+
 @implementation Course
 
+@synthesize courseIdentifier = _courseIdentifier;
+@synthesize endProperty = _endProperty;
+@synthesize notice = _notice;
+@synthesize name = _name;
+@synthesize type = _type;
+@synthesize start = _start;
 
 
-
-/**
- * Instantiate the instance using the passed dictionary values to set the properties values
- */
-
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
-	self = [super init];
-	if(![dictionary[@"end"] isKindOfClass:[NSNull class]]){
-		self.end = dictionary[@"end"];
-	}	
-	if(![dictionary[@"id"] isKindOfClass:[NSNull class]]){
-		self.idField = dictionary[@"id"];
-	}	
-	if(![dictionary[@"name"] isKindOfClass:[NSNull class]]){
-		self.name = dictionary[@"name"];
-	}	
-	if(![dictionary[@"notice"] isKindOfClass:[NSNull class]]){
-		self.notice = dictionary[@"notice"];
-	}	
-	if(![dictionary[@"start"] isKindOfClass:[NSNull class]]){
-		self.start = dictionary[@"start"];
-	}	
-	if(![dictionary[@"type"] isKindOfClass:[NSNull class]]){
-		self.type = [dictionary[@"type"] integerValue];
-	}
+    return [[self alloc] initWithDictionary:dict];
+}
 
-	return self;
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    
+    // This check serves to make sure that a non-NSDictionary object
+    // passed into the model class doesn't break the parsing.
+    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+            self.courseIdentifier = [self objectOrNilForKey:kCourseId fromDictionary:dict];
+            self.endProperty = [self objectOrNilForKey:kCourseEnd fromDictionary:dict];
+            self.notice = [self objectOrNilForKey:kCourseNotice fromDictionary:dict];
+            self.name = [self objectOrNilForKey:kCourseName fromDictionary:dict];
+            self.type = [[self objectOrNilForKey:kCourseType fromDictionary:dict] integerValue];
+            self.start = [NSDate dateFromUTCString:[self objectOrNilForKey:kCourseStart fromDictionary:dict]];
+
+    }
+    
+    return self;
+    
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+    [mutableDict setValue:self.courseIdentifier forKey:kCourseId];
+    [mutableDict setValue:self.endProperty forKey:kCourseEnd];
+    [mutableDict setValue:self.notice forKey:kCourseNotice];
+    [mutableDict setValue:self.name forKey:kCourseName];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.type] forKey:kCourseType];
+    [mutableDict setValue:self.start forKey:kCourseStart];
+
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+}
+
+- (NSString *)description 
+{
+    return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
+}
+
+#pragma mark - Helper Method
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
+{
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
 }
 
 
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
--(NSDictionary *)toDictionary
-{
-	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	if(self.end != nil){
-		dictionary[@"end"] = self.end;
-	}
-	if(self.idField != nil){
-		dictionary[@"id"] = self.idField;
-	}
-	if(self.name != nil){
-		dictionary[@"name"] = self.name;
-	}
-	if(self.notice != nil){
-		dictionary[@"notice"] = self.notice;
-	}
-	if(self.start != nil){
-		dictionary[@"start"] = self.start;
-	}
-	dictionary[@"type"] = @(self.type);
-	return dictionary;
+#pragma mark - NSCoding Methods
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+
+    self.courseIdentifier = [aDecoder decodeObjectForKey:kCourseId];
+    self.endProperty = [aDecoder decodeObjectForKey:kCourseEnd];
+    self.notice = [aDecoder decodeObjectForKey:kCourseNotice];
+    self.name = [aDecoder decodeObjectForKey:kCourseName];
+    self.type = [aDecoder decodeDoubleForKey:kCourseType];
+    self.start = [aDecoder decodeObjectForKey:kCourseStart];
+    return self;
 }
 
-/**
- * Implementation of NSCoding encoding method
- */
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	if(self.end != nil){
-		[aCoder encodeObject:self.end forKey:@"end"];
-	}
-	if(self.idField != nil){
-		[aCoder encodeObject:self.idField forKey:@"id"];
-	}
-	if(self.name != nil){
-		[aCoder encodeObject:self.name forKey:@"name"];
-	}
-	if(self.notice != nil){
-		[aCoder encodeObject:self.notice forKey:@"notice"];
-	}
-	if(self.start != nil){
-		[aCoder encodeObject:self.start forKey:@"start"];
-	}
-	[aCoder encodeObject:@(self.type) forKey:@"type"];
+
+    [aCoder encodeObject:_courseIdentifier forKey:kCourseId];
+    [aCoder encodeObject:_endProperty forKey:kCourseEnd];
+    [aCoder encodeObject:_notice forKey:kCourseNotice];
+    [aCoder encodeObject:_name forKey:kCourseName];
+    [aCoder encodeDouble:_type forKey:kCourseType];
+    [aCoder encodeObject:_start forKey:kCourseStart];
 }
 
-/**
- * Implementation of NSCoding initWithCoder: method
- */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (id)copyWithZone:(NSZone *)zone
 {
-	self = [super init];
-	self.end = [aDecoder decodeObjectForKey:@"end"];
-	self.idField = [aDecoder decodeObjectForKey:@"id"];
-	self.name = [aDecoder decodeObjectForKey:@"name"];
-	self.notice = [aDecoder decodeObjectForKey:@"notice"];
-	self.start = [aDecoder decodeObjectForKey:@"start"];
-	self.type = [[aDecoder decodeObjectForKey:@"type"] integerValue];
-	return self;
+    Course *copy = [[Course alloc] init];
+    
+    if (copy) {
 
+        copy.courseIdentifier = [self.courseIdentifier copyWithZone:zone];
+        copy.endProperty = [self.endProperty copyWithZone:zone];
+        copy.notice = [self.notice copyWithZone:zone];
+        copy.name = [self.name copyWithZone:zone];
+        copy.type = self.type;
+        copy.start = [self.start copyWithZone:zone];
+    }
+    
+    return copy;
 }
+
+
 @end

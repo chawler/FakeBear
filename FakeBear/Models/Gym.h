@@ -1,22 +1,23 @@
 //
-//	Gym.h
+//  Gym.h
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
 
-@interface Gym : NSObject
 
+@interface Gym : NSObject <NSCoding, NSCopying>
+
+@property (nonatomic, assign) NSInteger gymIdentifier;
 @property (nonatomic, assign) NSInteger coType;
-@property (nonatomic, assign) NSInteger idField;
-@property (nonatomic, strong) NSString * location;
-@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *name;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
--(NSDictionary *)toDictionary;
 @end

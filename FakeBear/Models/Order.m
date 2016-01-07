@@ -1,115 +1,133 @@
 //
-//	Order.m
+//  Order.m
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
-
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
+//
 
 #import "Order.h"
+#import "Xxquan.h"
+#import "Course.h"
+#import "Gym.h"
+
+
+NSString *const kOrderStatus = @"status";
+NSString *const kOrderXxquan = @"xxquan";
+NSString *const kOrderId = @"id";
+NSString *const kOrderCourse = @"course";
+NSString *const kOrderOrderCode = @"order_code";
+NSString *const kOrderGym = @"gym";
+
 
 @interface Order ()
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+
 @end
+
 @implementation Order
 
+@synthesize status = _status;
+@synthesize xxquan = _xxquan;
+@synthesize orderIdentifier = _orderIdentifier;
+@synthesize course = _course;
+@synthesize orderCode = _orderCode;
+@synthesize gym = _gym;
 
 
-
-/**
- * Instantiate the instance using the passed dictionary values to set the properties values
- */
-
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
-	self = [super init];
-	if(![dictionary[@"course"] isKindOfClass:[NSNull class]]){
-		self.course = [[Course alloc] initWithDictionary:dictionary[@"course"]];
-	}
+    return [[self alloc] initWithDictionary:dict];
+}
 
-	if(![dictionary[@"gym"] isKindOfClass:[NSNull class]]){
-		self.gym = [[Gym alloc] initWithDictionary:dictionary[@"gym"]];
-	}
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    
+    // This check serves to make sure that a non-NSDictionary object
+    // passed into the model class doesn't break the parsing.
+    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+            self.status = [[self objectOrNilForKey:kOrderStatus fromDictionary:dict] integerValue];
+            self.xxquan = [Xxquan modelObjectWithDictionary:[dict objectForKey:kOrderXxquan]];
+            self.orderIdentifier = [[self objectOrNilForKey:kOrderId fromDictionary:dict] integerValue];
+            self.course = [Course modelObjectWithDictionary:[dict objectForKey:kOrderCourse]];
+            self.orderCode = [self objectOrNilForKey:kOrderOrderCode fromDictionary:dict];
+            self.gym = [Gym modelObjectWithDictionary:[dict objectForKey:kOrderGym]];
 
-	if(![dictionary[@"id"] isKindOfClass:[NSNull class]]){
-		self.idField = [dictionary[@"id"] integerValue];
-	}
+    }
+    
+    return self;
+    
+}
 
-	if(![dictionary[@"order_code"] isKindOfClass:[NSNull class]]){
-		self.orderCode = dictionary[@"order_code"];
-	}	
-	if(![dictionary[@"status"] isKindOfClass:[NSNull class]]){
-		self.status = [dictionary[@"status"] integerValue];
-	}
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.status] forKey:kOrderStatus];
+    [mutableDict setValue:[self.xxquan dictionaryRepresentation] forKey:kOrderXxquan];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.orderIdentifier] forKey:kOrderId];
+    [mutableDict setValue:[self.course dictionaryRepresentation] forKey:kOrderCourse];
+    [mutableDict setValue:self.orderCode forKey:kOrderOrderCode];
+    [mutableDict setValue:[self.gym dictionaryRepresentation] forKey:kOrderGym];
 
-	if(![dictionary[@"xxquan"] isKindOfClass:[NSNull class]]){
-		self.xxquan = [[Xxquan alloc] initWithDictionary:dictionary[@"xxquan"]];
-	}
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+}
 
-	return self;
+- (NSString *)description 
+{
+    return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
+}
+
+#pragma mark - Helper Method
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
+{
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
 }
 
 
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
--(NSDictionary *)toDictionary
-{
-	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	if(self.course != nil){
-		dictionary[@"course"] = [self.course toDictionary];
-	}
-	if(self.gym != nil){
-		dictionary[@"gym"] = [self.gym toDictionary];
-	}
-	dictionary[@"id"] = @(self.idField);
-	if(self.orderCode != nil){
-		dictionary[@"order_code"] = self.orderCode;
-	}
-	dictionary[@"status"] = @(self.status);
-	if(self.xxquan != nil){
-		dictionary[@"xxquan"] = [self.xxquan toDictionary];
-	}
-	return dictionary;
+#pragma mark - NSCoding Methods
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+
+    self.status = [aDecoder decodeIntegerForKey:kOrderStatus];
+    self.xxquan = [aDecoder decodeObjectForKey:kOrderXxquan];
+    self.orderIdentifier = [aDecoder decodeIntegerForKey:kOrderId];
+    self.course = [aDecoder decodeObjectForKey:kOrderCourse];
+    self.orderCode = [aDecoder decodeObjectForKey:kOrderOrderCode];
+    self.gym = [aDecoder decodeObjectForKey:kOrderGym];
+    return self;
 }
 
-/**
- * Implementation of NSCoding encoding method
- */
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	if(self.course != nil){
-		[aCoder encodeObject:self.course forKey:@"course"];
-	}
-	if(self.gym != nil){
-		[aCoder encodeObject:self.gym forKey:@"gym"];
-	}
-	[aCoder encodeObject:@(self.idField) forKey:@"id"];	if(self.orderCode != nil){
-		[aCoder encodeObject:self.orderCode forKey:@"order_code"];
-	}
-	[aCoder encodeObject:@(self.status) forKey:@"status"];	if(self.xxquan != nil){
-		[aCoder encodeObject:self.xxquan forKey:@"xxquan"];
-	}
 
+    [aCoder encodeDouble:_status forKey:kOrderStatus];
+    [aCoder encodeObject:_xxquan forKey:kOrderXxquan];
+    [aCoder encodeDouble:_orderIdentifier forKey:kOrderId];
+    [aCoder encodeObject:_course forKey:kOrderCourse];
+    [aCoder encodeObject:_orderCode forKey:kOrderOrderCode];
+    [aCoder encodeObject:_gym forKey:kOrderGym];
 }
 
-/**
- * Implementation of NSCoding initWithCoder: method
- */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (id)copyWithZone:(NSZone *)zone
 {
-	self = [super init];
-	self.course = [aDecoder decodeObjectForKey:@"course"];
-	self.gym = [aDecoder decodeObjectForKey:@"gym"];
-	self.idField = [[aDecoder decodeObjectForKey:@"id"] integerValue];
-	self.orderCode = [aDecoder decodeObjectForKey:@"order_code"];
-	self.status = [[aDecoder decodeObjectForKey:@"status"] integerValue];
-	self.xxquan = [aDecoder decodeObjectForKey:@"xxquan"];
-	return self;
+    Order *copy = [[Order alloc] init];
+    
+    if (copy) {
 
+        copy.status = self.status;
+        copy.xxquan = [self.xxquan copyWithZone:zone];
+        copy.orderIdentifier = self.orderIdentifier;
+        copy.course = [self.course copyWithZone:zone];
+        copy.orderCode = [self.orderCode copyWithZone:zone];
+        copy.gym = [self.gym copyWithZone:zone];
+    }
+    
+    return copy;
 }
+
+
 @end

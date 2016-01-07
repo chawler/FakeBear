@@ -1,20 +1,21 @@
 //
-//	Xxquan.h
+//  Xxquan.h
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
 
-@interface Xxquan : NSObject
 
-@property (nonatomic, assign) NSInteger checkin;
-@property (nonatomic, assign) NSInteger invite;
+@interface Xxquan : NSObject <NSCoding, NSCopying>
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic, assign) double checkin;
+@property (nonatomic, assign) double invite;
 
--(NSDictionary *)toDictionary;
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

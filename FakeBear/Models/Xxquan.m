@@ -1,72 +1,102 @@
 //
-//	Xxquan.m
+//  Xxquan.m
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
-
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
+//
 
 #import "Xxquan.h"
 
+
+NSString *const kXxquanCheckin = @"checkin";
+NSString *const kXxquanInvite = @"invite";
+
+
 @interface Xxquan ()
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+
 @end
+
 @implementation Xxquan
 
+@synthesize checkin = _checkin;
+@synthesize invite = _invite;
 
 
-
-/**
- * Instantiate the instance using the passed dictionary values to set the properties values
- */
-
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
-	self = [super init];
-	if(![dictionary[@"checkin"] isKindOfClass:[NSNull class]]){
-		self.checkin = [dictionary[@"checkin"] integerValue];
-	}
+    return [[self alloc] initWithDictionary:dict];
+}
 
-	if(![dictionary[@"invite"] isKindOfClass:[NSNull class]]){
-		self.invite = [dictionary[@"invite"] integerValue];
-	}
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    
+    // This check serves to make sure that a non-NSDictionary object
+    // passed into the model class doesn't break the parsing.
+    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+            self.checkin = [[self objectOrNilForKey:kXxquanCheckin fromDictionary:dict] doubleValue];
+            self.invite = [[self objectOrNilForKey:kXxquanInvite fromDictionary:dict] doubleValue];
 
-	return self;
+    }
+    
+    return self;
+    
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.checkin] forKey:kXxquanCheckin];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.invite] forKey:kXxquanInvite];
+
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+}
+
+- (NSString *)description 
+{
+    return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
+}
+
+#pragma mark - Helper Method
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
+{
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
 }
 
 
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
--(NSDictionary *)toDictionary
-{
-	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	dictionary[@"checkin"] = @(self.checkin);
-	dictionary[@"invite"] = @(self.invite);
-	return dictionary;
+#pragma mark - NSCoding Methods
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+
+    self.checkin = [aDecoder decodeDoubleForKey:kXxquanCheckin];
+    self.invite = [aDecoder decodeDoubleForKey:kXxquanInvite];
+    return self;
 }
 
-/**
- * Implementation of NSCoding encoding method
- */
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	[aCoder encodeObject:@(self.checkin) forKey:@"checkin"];	[aCoder encodeObject:@(self.invite) forKey:@"invite"];
+
+    [aCoder encodeDouble:_checkin forKey:kXxquanCheckin];
+    [aCoder encodeDouble:_invite forKey:kXxquanInvite];
 }
 
-/**
- * Implementation of NSCoding initWithCoder: method
- */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (id)copyWithZone:(NSZone *)zone
 {
-	self = [super init];
-	self.checkin = [[aDecoder decodeObjectForKey:@"checkin"] integerValue];
-	self.invite = [[aDecoder decodeObjectForKey:@"invite"] integerValue];
-	return self;
+    Xxquan *copy = [[Xxquan alloc] init];
+    
+    if (copy) {
 
+        copy.checkin = self.checkin;
+        copy.invite = self.invite;
+    }
+    
+    return copy;
 }
+
+
 @end

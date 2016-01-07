@@ -1,92 +1,116 @@
 //
-//	Gym.m
+//  Gym.m
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
-
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
+//
 
 #import "Gym.h"
 
+
+NSString *const kGymId = @"id";
+NSString *const kGymCoType = @"co_type";
+NSString *const kGymLocation = @"location";
+NSString *const kGymName = @"name";
+
+
 @interface Gym ()
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+
 @end
+
 @implementation Gym
 
+@synthesize gymIdentifier = _gymIdentifier;
+@synthesize coType = _coType;
+@synthesize location = _location;
+@synthesize name = _name;
 
 
-
-/**
- * Instantiate the instance using the passed dictionary values to set the properties values
- */
-
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
-	self = [super init];
-	if(![dictionary[@"co_type"] isKindOfClass:[NSNull class]]){
-		self.coType = [dictionary[@"co_type"] integerValue];
-	}
+    return [[self alloc] initWithDictionary:dict];
+}
 
-	if(![dictionary[@"id"] isKindOfClass:[NSNull class]]){
-		self.idField = [dictionary[@"id"] integerValue];
-	}
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    
+    // This check serves to make sure that a non-NSDictionary object
+    // passed into the model class doesn't break the parsing.
+    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+            self.gymIdentifier = [[self objectOrNilForKey:kGymId fromDictionary:dict] integerValue];
+            self.coType = [[self objectOrNilForKey:kGymCoType fromDictionary:dict] integerValue];
+            self.location = [self objectOrNilForKey:kGymLocation fromDictionary:dict];
+            self.name = [self objectOrNilForKey:kGymName fromDictionary:dict];
 
-	if(![dictionary[@"location"] isKindOfClass:[NSNull class]]){
-		self.location = dictionary[@"location"];
-	}	
-	if(![dictionary[@"name"] isKindOfClass:[NSNull class]]){
-		self.name = dictionary[@"name"];
-	}	
-	return self;
+    }
+    
+    return self;
+    
+}
+
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.gymIdentifier] forKey:kGymId];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.coType] forKey:kGymCoType];
+    [mutableDict setValue:self.location forKey:kGymLocation];
+    [mutableDict setValue:self.name forKey:kGymName];
+
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+}
+
+- (NSString *)description 
+{
+    return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
+}
+
+#pragma mark - Helper Method
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
+{
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
 }
 
 
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
--(NSDictionary *)toDictionary
-{
-	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	dictionary[@"co_type"] = @(self.coType);
-	dictionary[@"id"] = @(self.idField);
-	if(self.location != nil){
-		dictionary[@"location"] = self.location;
-	}
-	if(self.name != nil){
-		dictionary[@"name"] = self.name;
-	}
-	return dictionary;
+#pragma mark - NSCoding Methods
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+
+    self.gymIdentifier = [aDecoder decodeIntegerForKey:kGymId];
+    self.coType = [aDecoder decodeIntegerForKey:kGymCoType];
+    self.location = [aDecoder decodeObjectForKey:kGymLocation];
+    self.name = [aDecoder decodeObjectForKey:kGymName];
+    return self;
 }
 
-/**
- * Implementation of NSCoding encoding method
- */
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	[aCoder encodeObject:@(self.coType) forKey:@"co_type"];	[aCoder encodeObject:@(self.idField) forKey:@"id"];	if(self.location != nil){
-		[aCoder encodeObject:self.location forKey:@"location"];
-	}
-	if(self.name != nil){
-		[aCoder encodeObject:self.name forKey:@"name"];
-	}
 
+    [aCoder encodeDouble:_gymIdentifier forKey:kGymId];
+    [aCoder encodeDouble:_coType forKey:kGymCoType];
+    [aCoder encodeObject:_location forKey:kGymLocation];
+    [aCoder encodeObject:_name forKey:kGymName];
 }
 
-/**
- * Implementation of NSCoding initWithCoder: method
- */
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (id)copyWithZone:(NSZone *)zone
 {
-	self = [super init];
-	self.coType = [[aDecoder decodeObjectForKey:@"co_type"] integerValue];
-	self.idField = [[aDecoder decodeObjectForKey:@"id"] integerValue];
-	self.location = [aDecoder decodeObjectForKey:@"location"];
-	self.name = [aDecoder decodeObjectForKey:@"name"];
-	return self;
+    Gym *copy = [[Gym alloc] init];
+    
+    if (copy) {
 
+        copy.gymIdentifier = self.gymIdentifier;
+        copy.coType = self.coType;
+        copy.location = [self.location copyWithZone:zone];
+        copy.name = [self.name copyWithZone:zone];
+    }
+    
+    return copy;
 }
+
+
 @end

@@ -1,27 +1,25 @@
 //
-//	Order.h
+//  Order.h
 //
-//	Create by 炜东 郑 on 7/1/2016
-//	Copyright © 2016. All rights reserved.
+//  Created by 炜东 郑 on 16/1/7
+//  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-//	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
-#import "Course.h"
-#import "Gym.h"
-#import "Xxquan.h"
+@class Xxquan, Course, Gym;
 
-@interface Order : NSObject
+@interface Order : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, strong) Course * course;
-@property (nonatomic, strong) Gym * gym;
-@property (nonatomic, assign) NSInteger idField;
-@property (nonatomic, strong) NSString * orderCode;
 @property (nonatomic, assign) NSInteger status;
-@property (nonatomic, strong) Xxquan * xxquan;
+@property (nonatomic, strong) Xxquan *xxquan;
+@property (nonatomic, assign) NSInteger orderIdentifier;
+@property (nonatomic, strong) Course *course;
+@property (nonatomic, strong) NSString *orderCode;
+@property (nonatomic, strong) Gym *gym;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
--(NSDictionary *)toDictionary;
 @end

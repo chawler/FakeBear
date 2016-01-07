@@ -32,7 +32,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     
     [self.tableView registerClass:[OrderSectionView class] forHeaderFooterViewReuseIdentifier:OrderSectionViewReuseIdentifier];
     
-    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired?page=1" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @1} success:^(NSURLSessionDataTask *task, id responseObject) {
         [self setupWithResponse:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"---error: %@", error);
@@ -64,8 +64,6 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     return 1;
 }
 
-#pragma mark - UITableView Delegate
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *UITableViewCellReuseIdentifier = @"UITableViewCellReuseIdentifier";
@@ -78,6 +76,8 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     }
     return cell;
 }
+
+#pragma mark - UITableView Delegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

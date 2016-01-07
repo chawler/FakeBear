@@ -35,6 +35,7 @@
 		3994BC6E1C3E30BA0017CA52 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6D1C3E30BA0017CA52 /* ProfileController.m */; };
 		39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AAAA531C3E869500D97A32 /* OrderCourseCell.m */; };
 		39AAAA591C3E91BD00D97A32 /* ESFrameworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */; };
+		39AAAA621C3EA2B500D97A32 /* BaseOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AAAA611C3EA2B500D97A32 /* BaseOrderView.m */; };
 		39EE3A7E1C3E440900F29FEF /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE3A7D1C3E440900F29FEF /* HttpClient.m */; };
 		505FB3E24AD4AD0C6E2CD195 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96053E6B923B18DDAFE8A08B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,8 @@
 		39AAAA521C3E869500D97A32 /* OrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCourseCell.h; sourceTree = "<group>"; };
 		39AAAA531C3E869500D97A32 /* OrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCourseCell.m; sourceTree = "<group>"; };
 		39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ESFrameworkCore.framework; sourceTree = "<group>"; };
+		39AAAA601C3EA2B500D97A32 /* BaseOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOrderView.h; sourceTree = "<group>"; };
+		39AAAA611C3EA2B500D97A32 /* BaseOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOrderView.m; sourceTree = "<group>"; };
 		39EE3A7A1C3E3EBE00F29FEF /* FakeBear-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeBear-Prefix.pch"; sourceTree = "<group>"; };
 		39EE3A7C1C3E440900F29FEF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		39EE3A7D1C3E440900F29FEF /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
@@ -176,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				397A6EEA1C3E5CC4006DB978 /* Super */,
-				39733AC61C3E6F3600B0C3A3 /* Extra */,
 				397A6EEE1C3E5CFA006DB978 /* Cell */,
+				39733AC61C3E6F3600B0C3A3 /* Extra */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,8 @@
 				39733ABB1C3E68A200B0C3A3 /* BaseView.m */,
 				39733AB11C3E633600B0C3A3 /* BaseSectionView.h */,
 				39733AB21C3E633600B0C3A3 /* BaseSectionView.m */,
+				39AAAA601C3EA2B500D97A32 /* BaseOrderView.h */,
+				39AAAA611C3EA2B500D97A32 /* BaseOrderView.m */,
 			);
 			path = Super;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				397A6EFD1C3E6267006DB978 /* Order.m in Sources */,
 				39733AC41C3E6E5F00B0C3A3 /* UIView+UIFactory.m in Sources */,
 				397A6EF81C3E606A006DB978 /* Gym.m in Sources */,
+				39AAAA621C3EA2B500D97A32 /* BaseOrderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

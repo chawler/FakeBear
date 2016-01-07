@@ -13,4 +13,6 @@
 - (void)addSubviews;
 - (void)defineLayout;
 
+- (void)layoutSubviewsWithData:(id)data;
+
 @end

@@ -7,10 +7,14 @@
 //
 
 #import "MyBooksController.h"
+#import "HttpClient.h"
+#import "Order.h"
+#import "NSDictionary+NoNullObjectForKey.h"
 
 @interface MyBooksController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -19,6 +23,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    
+    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired?page=1" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self setupWithResponse:responseObject];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"---error: %@", error);
+    }];
+}
+
+- (void)setupWithResponse:(NSDictionary *)responseObject
+{
+    for (NSDictionary *dict in [[responseObject dictForKey:@"data"] arrayForKey:@"orders"]) {
+        [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
+    }
+    NSLog(@"%@", self.dataArray);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,9 +46,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.dataArray.count;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
 
 #pragma mark - getters and setters
 
@@ -42,6 +64,14 @@
         _tableView.dataSource = self;
     }
     return _tableView;
+}
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
 }
 
 /*

@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		397A6EDD1C3E53B7006DB978 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6ED61C3E53B7006DB978 /* Course.m */; };
+		397A6EDE1C3E53B7006DB978 /* Gym.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6ED81C3E53B7006DB978 /* Gym.m */; };
+		397A6EDF1C3E53B7006DB978 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6EDA1C3E53B7006DB978 /* Order.m */; };
+		397A6EE01C3E53B7006DB978 /* Xxquan.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6EDC1C3E53B7006DB978 /* Xxquan.m */; };
+		397A6EE71C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6EE41C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m */; };
+		397A6EE81C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 397A6EE61C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m */; };
 		3994BC441C3D73610017CA52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC431C3D73610017CA52 /* main.m */; };
 		3994BC471C3D73610017CA52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC461C3D73610017CA52 /* AppDelegate.m */; };
-		3994BC4A1C3D73610017CA52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC491C3D73610017CA52 /* ViewController.m */; };
 		3994BC4F1C3D73610017CA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3994BC4E1C3D73610017CA52 /* Assets.xcassets */; };
 		3994BC521C3D73610017CA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3994BC501C3D73610017CA52 /* LaunchScreen.storyboard */; };
 		3994BC5A1C3D73E60017CA52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3994BC591C3D73E60017CA52 /* Images.xcassets */; };
@@ -19,16 +24,27 @@
 		3994BC681C3E2F2A0017CA52 /* FitnessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC671C3E2F2A0017CA52 /* FitnessController.m */; };
 		3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6A1C3E2F420017CA52 /* FriendshipController.m */; };
 		3994BC6E1C3E30BA0017CA52 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6D1C3E30BA0017CA52 /* ProfileController.m */; };
+		39EE3A7E1C3E440900F29FEF /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE3A7D1C3E440900F29FEF /* HttpClient.m */; };
 		505FB3E24AD4AD0C6E2CD195 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96053E6B923B18DDAFE8A08B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		397A6ED51C3E53B7006DB978 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		397A6ED61C3E53B7006DB978 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		397A6ED71C3E53B7006DB978 /* Gym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gym.h; sourceTree = "<group>"; };
+		397A6ED81C3E53B7006DB978 /* Gym.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gym.m; sourceTree = "<group>"; };
+		397A6ED91C3E53B7006DB978 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		397A6EDA1C3E53B7006DB978 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		397A6EDB1C3E53B7006DB978 /* Xxquan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Xxquan.h; sourceTree = "<group>"; };
+		397A6EDC1C3E53B7006DB978 /* Xxquan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Xxquan.m; sourceTree = "<group>"; };
+		397A6EE31C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NoNullObjectForKey.h"; sourceTree = "<group>"; };
+		397A6EE41C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NoNullObjectForKey.m"; sourceTree = "<group>"; };
+		397A6EE51C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SetNoNilObjectForKey.h"; sourceTree = "<group>"; };
+		397A6EE61C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SetNoNilObjectForKey.m"; sourceTree = "<group>"; };
 		3994BC3F1C3D73610017CA52 /* FakeBear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeBear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3994BC431C3D73610017CA52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3994BC451C3D73610017CA52 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3994BC461C3D73610017CA52 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3994BC481C3D73610017CA52 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3994BC491C3D73610017CA52 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3994BC4E1C3D73610017CA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3994BC511C3D73610017CA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3994BC531C3D73610017CA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +62,8 @@
 		3994BC6C1C3E30BA0017CA52 /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
 		3994BC6D1C3E30BA0017CA52 /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
 		39EE3A7A1C3E3EBE00F29FEF /* FakeBear-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeBear-Prefix.pch"; sourceTree = "<group>"; };
+		39EE3A7C1C3E440900F29FEF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		39EE3A7D1C3E440900F29FEF /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
 		92FF9D30D90FC2EAA4466CF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		96053E6B923B18DDAFE8A08B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCED0B6C472A21B755F67B9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +90,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		397A6ED41C3E53B7006DB978 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				397A6ED51C3E53B7006DB978 /* Course.h */,
+				397A6ED61C3E53B7006DB978 /* Course.m */,
+				397A6ED71C3E53B7006DB978 /* Gym.h */,
+				397A6ED81C3E53B7006DB978 /* Gym.m */,
+				397A6ED91C3E53B7006DB978 /* Order.h */,
+				397A6EDA1C3E53B7006DB978 /* Order.m */,
+				397A6EDB1C3E53B7006DB978 /* Xxquan.h */,
+				397A6EDC1C3E53B7006DB978 /* Xxquan.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		397A6EE11C3E54E5006DB978 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				397A6EE21C3E54E5006DB978 /* Category */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		397A6EE21C3E54E5006DB978 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				397A6EE31C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.h */,
+				397A6EE41C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m */,
+				397A6EE51C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.h */,
+				397A6EE61C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		3994BC361C3D73600017CA52 = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +145,12 @@
 		3994BC411C3D73610017CA52 /* FakeBear */ = {
 			isa = PBXGroup;
 			children = (
+				39EE3A7B1C3E432C00F29FEF /* Helpers */,
+				397A6EE11C3E54E5006DB978 /* Commons */,
+				397A6ED41C3E53B7006DB978 /* Models */,
 				3994BC5B1C3D79580017CA52 /* Controllers */,
 				3994BC451C3D73610017CA52 /* AppDelegate.h */,
 				3994BC461C3D73610017CA52 /* AppDelegate.m */,
-				3994BC481C3D73610017CA52 /* ViewController.h */,
-				3994BC491C3D73610017CA52 /* ViewController.m */,
 				3994BC501C3D73610017CA52 /* LaunchScreen.storyboard */,
 				3994BC531C3D73610017CA52 /* Info.plist */,
 				3994BC4E1C3D73610017CA52 /* Assets.xcassets */,
@@ -141,6 +194,15 @@
 				3994BC611C3D79CF0017CA52 /* BaseController.m */,
 			);
 			path = Super;
+			sourceTree = "<group>";
+		};
+		39EE3A7B1C3E432C00F29FEF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				39EE3A7C1C3E440900F29FEF /* HttpClient.h */,
+				39EE3A7D1C3E440900F29FEF /* HttpClient.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		72A918670F765B9B69AD0FEE /* Frameworks */ = {
@@ -272,10 +334,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3994BC4A1C3D73610017CA52 /* ViewController.m in Sources */,
+				397A6EDE1C3E53B7006DB978 /* Gym.m in Sources */,
+				397A6EE01C3E53B7006DB978 /* Xxquan.m in Sources */,
+				397A6EE81C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m in Sources */,
 				3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */,
+				397A6EE71C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m in Sources */,
 				3994BC6E1C3E30BA0017CA52 /* ProfileController.m in Sources */,
 				3994BC621C3D79CF0017CA52 /* BaseController.m in Sources */,
+				39EE3A7E1C3E440900F29FEF /* HttpClient.m in Sources */,
+				397A6EDD1C3E53B7006DB978 /* Course.m in Sources */,
+				397A6EDF1C3E53B7006DB978 /* Order.m in Sources */,
 				3994BC651C3D79EA0017CA52 /* MyBooksController.m in Sources */,
 				3994BC471C3D73610017CA52 /* AppDelegate.m in Sources */,
 				3994BC5E1C3D797A0017CA52 /* MainTabBarController.m in Sources */,

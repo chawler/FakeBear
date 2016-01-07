@@ -9,10 +9,6 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 
-#define HexRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-#define HexRGBAlpha(rgbValue,alp) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:alp]
-
 @interface AppDelegate ()
 
 @end
@@ -23,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: HexRGB(0x4C4E53)}];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: HexRGB(0xFF5126)} forState:UIControlStateSelected];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

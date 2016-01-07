@@ -12,8 +12,6 @@
 #import "FriendshipController.h"
 #import "ProfileController.h"
 
-#define NavCtrl(vCtrl) [[UINavigationController alloc] initWithRootViewController:vCtrl]
-
 @interface MainTabBarController ()
 
 @end
@@ -44,6 +42,7 @@
         tabBarItem1.image = [[UIImage imageNamed:icons[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         tabBarItem1.selectedImage = [[UIImage imageNamed:actionIcons[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         tabBarItem1.title = titles[i];
+        [[self.viewControllers[i] topViewController] setTitle:titles[i]];
     }
 }
 

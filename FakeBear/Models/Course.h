@@ -12,7 +12,7 @@
 @interface Course : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *courseIdentifier;
-@property (nonatomic, strong) NSString *endProperty;
+@property (nonatomic, strong) NSDate *endProperty;
 @property (nonatomic, strong) NSString *notice;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger type;

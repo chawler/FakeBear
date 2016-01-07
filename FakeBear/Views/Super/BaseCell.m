@@ -8,6 +8,12 @@
 
 #import "BaseCell.h"
 
+@interface BaseCell()
+
+@property (nonatomic, strong) UIView *containerView;
+
+@end
+
 @implementation BaseCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -21,7 +27,7 @@
 
 - (void)addSubviews
 {
-    
+    [self.contentView addSubview:self.containerView];
 }
 
 - (void)defineLayout
@@ -32,6 +38,15 @@
 - (void)layoutSubviewsWithData:(id)data
 {
     assert(@"must be override!!!");
+}
+
+- (UIView *)containerView
+{
+    if (!_containerView) {
+        _containerView = [UIView new];
+        _containerView.backgroundColor = [UIColor whiteColor];
+    }
+    return _containerView;
 }
 
 @end

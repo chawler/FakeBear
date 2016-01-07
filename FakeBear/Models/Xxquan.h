@@ -11,8 +11,8 @@
 
 @interface Xxquan : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) double checkin;
-@property (nonatomic, assign) double invite;
+@property (nonatomic, assign) NSInteger checkin;
+@property (nonatomic, assign) NSInteger invite;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

@@ -33,6 +33,8 @@
 		3994BC681C3E2F2A0017CA52 /* FitnessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC671C3E2F2A0017CA52 /* FitnessController.m */; };
 		3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6A1C3E2F420017CA52 /* FriendshipController.m */; };
 		3994BC6E1C3E30BA0017CA52 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6D1C3E30BA0017CA52 /* ProfileController.m */; };
+		39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AAAA531C3E869500D97A32 /* OrderCourseCell.m */; };
+		39AAAA591C3E91BD00D97A32 /* ESFrameworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */; };
 		39EE3A7E1C3E440900F29FEF /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE3A7D1C3E440900F29FEF /* HttpClient.m */; };
 		505FB3E24AD4AD0C6E2CD195 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96053E6B923B18DDAFE8A08B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,9 @@
 		3994BC6A1C3E2F420017CA52 /* FriendshipController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipController.m; sourceTree = "<group>"; };
 		3994BC6C1C3E30BA0017CA52 /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
 		3994BC6D1C3E30BA0017CA52 /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
+		39AAAA521C3E869500D97A32 /* OrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCourseCell.h; sourceTree = "<group>"; };
+		39AAAA531C3E869500D97A32 /* OrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCourseCell.m; sourceTree = "<group>"; };
+		39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ESFrameworkCore.framework; sourceTree = "<group>"; };
 		39EE3A7A1C3E3EBE00F29FEF /* FakeBear-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeBear-Prefix.pch"; sourceTree = "<group>"; };
 		39EE3A7C1C3E440900F29FEF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
 		39EE3A7D1C3E440900F29FEF /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AAAA591C3E91BD00D97A32 /* ESFrameworkCore.framework in Frameworks */,
 				505FB3E24AD4AD0C6E2CD195 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +202,8 @@
 				39733AB51C3E63CE00B0C3A3 /* OrderSectionView.m */,
 				39733ABD1C3E68C100B0C3A3 /* OrderSectionHeader.h */,
 				39733ABE1C3E68C100B0C3A3 /* OrderSectionHeader.m */,
+				39AAAA521C3E869500D97A32 /* OrderCourseCell.h */,
+				39AAAA531C3E869500D97A32 /* OrderCourseCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			children = (
 				3994BC411C3D73610017CA52 /* FakeBear */,
 				3994BC401C3D73610017CA52 /* Products */,
+				39AAAA571C3E917C00D97A32 /* Vendor */,
 				1B53EAEC3289DCFB319BC80A /* Pods */,
 				72A918670F765B9B69AD0FEE /* Frameworks */,
 			);
@@ -271,6 +280,15 @@
 				3994BC611C3D79CF0017CA52 /* BaseController.m */,
 			);
 			path = Super;
+			sourceTree = "<group>";
+		};
+		39AAAA571C3E917C00D97A32 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */,
+			);
+			name = Vendor;
+			path = Vendors;
 			sourceTree = "<group>";
 		};
 		39EE3A7B1C3E432C00F29FEF /* Helpers */ = {
@@ -429,6 +447,7 @@
 				3994BC5E1C3D797A0017CA52 /* MainTabBarController.m in Sources */,
 				3994BC681C3E2F2A0017CA52 /* FitnessController.m in Sources */,
 				39733AC51C3E6E5F00B0C3A3 /* UIView+Utils.m in Sources */,
+				39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */,
 				3994BC441C3D73610017CA52 /* main.m in Sources */,
 				39733AC91C3E6F4300B0C3A3 /* UIPlaceHolderTextView.m in Sources */,
 				39733ABC1C3E68A200B0C3A3 /* BaseView.m in Sources */,
@@ -538,6 +557,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Vendors",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FakeBear/FakeBear-Prefix.pch";
 				INFOPLIST_FILE = FakeBear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -553,6 +578,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Vendors",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FakeBear/FakeBear-Prefix.pch";
 				INFOPLIST_FILE = FakeBear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

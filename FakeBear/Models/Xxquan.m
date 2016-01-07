@@ -36,8 +36,8 @@ NSString *const kXxquanInvite = @"invite";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.checkin = [[self objectOrNilForKey:kXxquanCheckin fromDictionary:dict] doubleValue];
-            self.invite = [[self objectOrNilForKey:kXxquanInvite fromDictionary:dict] doubleValue];
+            self.checkin = [[self objectOrNilForKey:kXxquanCheckin fromDictionary:dict] integerValue];
+            self.invite = [[self objectOrNilForKey:kXxquanInvite fromDictionary:dict] integerValue];
 
     }
     
@@ -48,8 +48,8 @@ NSString *const kXxquanInvite = @"invite";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:[NSNumber numberWithDouble:self.checkin] forKey:kXxquanCheckin];
-    [mutableDict setValue:[NSNumber numberWithDouble:self.invite] forKey:kXxquanInvite];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.checkin] forKey:kXxquanCheckin];
+    [mutableDict setValue:[NSNumber numberWithInteger:self.invite] forKey:kXxquanInvite];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -73,8 +73,8 @@ NSString *const kXxquanInvite = @"invite";
 {
     self = [super init];
 
-    self.checkin = [aDecoder decodeDoubleForKey:kXxquanCheckin];
-    self.invite = [aDecoder decodeDoubleForKey:kXxquanInvite];
+    self.checkin = [aDecoder decodeIntegerForKey:kXxquanCheckin];
+    self.invite = [aDecoder decodeIntegerForKey:kXxquanInvite];
     return self;
 }
 

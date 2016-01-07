@@ -10,6 +10,8 @@
 
 @interface BaseCell : UITableViewCell
 
+@property (nonatomic, strong, readonly) UIView *containerView;
+
 - (void)addSubviews;
 - (void)defineLayout;
 

@@ -46,7 +46,7 @@ NSString *const kCourseStart = @"start";
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
             self.courseIdentifier = [self objectOrNilForKey:kCourseId fromDictionary:dict];
-            self.endProperty = [self objectOrNilForKey:kCourseEnd fromDictionary:dict];
+            self.endProperty = [NSDate dateFromUTCString:[self objectOrNilForKey:kCourseEnd fromDictionary:dict]];
             self.notice = [self objectOrNilForKey:kCourseNotice fromDictionary:dict];
             self.name = [self objectOrNilForKey:kCourseName fromDictionary:dict];
             self.type = [[self objectOrNilForKey:kCourseType fromDictionary:dict] integerValue];

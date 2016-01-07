@@ -17,5 +17,6 @@
 #define kFont(args) [UIFont systemFontOfSize:args]
 
 #import <Masonry.h>
+#import <ESFrameworkCore/ESFrameworkCore.h>
 #import "UIView+UIFactory.h"
 #import "UIView+Utils.h"

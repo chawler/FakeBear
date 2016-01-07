@@ -13,6 +13,7 @@
 #import "OrderSectionView.h"
 #import "Course.h"
 #import "NSDate+Helper.h"
+#import "OrderCourseCell.h"
 
 static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdentifier";
 
@@ -68,9 +69,12 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *UITableViewCellReuseIdentifier = @"UITableViewCellReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:UITableViewCellReuseIdentifier];
+    OrderCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:UITableViewCellReuseIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UITableViewCellReuseIdentifier];
+        cell = [[OrderCourseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:UITableViewCellReuseIdentifier];
+    }
+    if (indexPath.section < self.dataArray.count) {
+        [cell layoutSubviewsWithData:self.dataArray[indexPath.section]];
     }
     return cell;
 }
@@ -95,7 +99,12 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120;
 }
 
 #pragma mark - getters and setters
@@ -106,6 +115,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }

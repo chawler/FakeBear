@@ -15,6 +15,7 @@
 #import "NSDate+Helper.h"
 #import "OrderCourseCell.h"
 #import "OrderTableHeader.h"
+#import "ActionHelper.h"
 
 static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdentifier";
 
@@ -40,6 +41,10 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"---error: %@", error);
     }];
+    
+    [ActionHelper sharedInstance].onCheckin = ^(Order *order) {
+        NSLog(@"%@", order);
+    };
 }
 
 - (void)setupWithResponse:(NSDictionary *)responseObject

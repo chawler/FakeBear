@@ -11,6 +11,7 @@
 #import "Gym.h"
 #import "Xxquan.h"
 #import "NSDate+Helper.h"
+#import "ActionHelper.h"
 
 @interface BaseOrderView()
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UIImageView *verLine;
 @property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, strong) Order *order;
 
 @end
 
@@ -109,6 +111,8 @@
 
 - (void)layoutSubviewsWithData:(Order *)order
 {
+    _order = order;
+    
     self.courseNameLabel.text = order.course.name;
     
     NSString *start = [order.course.start stringWithFormat:@"HH:mm"];
@@ -201,8 +205,12 @@
 - (UIButton *)leftBtn
 {
     if (!_leftBtn) {
+        ESWeakSelf;
         _leftBtn = [UIView createButton:CGRectZero size:17 title:@"健身打卡" titleColor:HexRGB(0x555555)];
         [_leftBtn setTitleColor:HexRGB(0xAAAAAA) forState:UIControlStateDisabled];
+        [_leftBtn addTargetActionWithBlock:^{
+            [ActionHelper sharedInstance].onCheckin(__weakSelf.order);
+        }];
     }
     return _leftBtn;
 }

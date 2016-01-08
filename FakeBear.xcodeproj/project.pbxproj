@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */; };
 		394FF9651C3F50E1009513BC /* OrderTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9641C3F50E1009513BC /* OrderTableHeader.m */; };
+		394FF96B1C3F56E3009513BC /* ActionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF96A1C3F56E3009513BC /* ActionHelper.m */; };
 		39733AB31C3E633600B0C3A3 /* BaseSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB21C3E633600B0C3A3 /* BaseSectionView.m */; };
 		39733AB61C3E63CE00B0C3A3 /* OrderSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB51C3E63CE00B0C3A3 /* OrderSectionView.m */; };
 		39733ABC1C3E68A200B0C3A3 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733ABB1C3E68A200B0C3A3 /* BaseView.m */; };
@@ -47,6 +48,8 @@
 		394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOrderHeader.m; sourceTree = "<group>"; };
 		394FF9631C3F50E1009513BC /* OrderTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableHeader.h; sourceTree = "<group>"; };
 		394FF9641C3F50E1009513BC /* OrderTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableHeader.m; sourceTree = "<group>"; };
+		394FF9691C3F56E3009513BC /* ActionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHelper.h; sourceTree = "<group>"; };
+		394FF96A1C3F56E3009513BC /* ActionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHelper.m; sourceTree = "<group>"; };
 		39733AB11C3E633600B0C3A3 /* BaseSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSectionView.h; sourceTree = "<group>"; };
 		39733AB21C3E633600B0C3A3 /* BaseSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSectionView.m; sourceTree = "<group>"; };
 		39733AB41C3E63CE00B0C3A3 /* OrderSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSectionView.h; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 			children = (
 				39EE3A7C1C3E440900F29FEF /* HttpClient.h */,
 				39EE3A7D1C3E440900F29FEF /* HttpClient.m */,
+				394FF9691C3F56E3009513BC /* ActionHelper.h */,
+				394FF96A1C3F56E3009513BC /* ActionHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */,
 				3994BC441C3D73610017CA52 /* main.m in Sources */,
 				39733AC91C3E6F4300B0C3A3 /* UIPlaceHolderTextView.m in Sources */,
+				394FF96B1C3F56E3009513BC /* ActionHelper.m in Sources */,
 				394FF9651C3F50E1009513BC /* OrderTableHeader.m in Sources */,
 				39733ABC1C3E68A200B0C3A3 /* BaseView.m in Sources */,
 				397A6EFD1C3E6267006DB978 /* Order.m in Sources */,

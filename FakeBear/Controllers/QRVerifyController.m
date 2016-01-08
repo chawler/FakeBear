@@ -42,6 +42,7 @@
     [super viewDidLoad];
     self.title = @"扫码验证";
     
+    [self setDefaultNavigationLeftItem];
     
     [self.view addSubview:self.scrollView];
     

@@ -37,6 +37,7 @@
 		3994BC681C3E2F2A0017CA52 /* FitnessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC671C3E2F2A0017CA52 /* FitnessController.m */; };
 		3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6A1C3E2F420017CA52 /* FriendshipController.m */; };
 		3994BC6E1C3E30BA0017CA52 /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994BC6D1C3E30BA0017CA52 /* ProfileController.m */; };
+		39A1028A1C3F7B2600886ACB /* UIViewController+CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A102891C3F7B2600886ACB /* UIViewController+CustomNavController.m */; };
 		39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AAAA531C3E869500D97A32 /* OrderCourseCell.m */; };
 		39AAAA591C3E91BD00D97A32 /* ESFrameworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */; };
 		39AAAA621C3EA2B500D97A32 /* BaseOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AAAA611C3EA2B500D97A32 /* BaseOrderView.m */; };
@@ -103,6 +104,8 @@
 		3994BC6A1C3E2F420017CA52 /* FriendshipController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendshipController.m; sourceTree = "<group>"; };
 		3994BC6C1C3E30BA0017CA52 /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
 		3994BC6D1C3E30BA0017CA52 /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
+		39A102881C3F7B2600886ACB /* UIViewController+CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomNavController.h"; sourceTree = "<group>"; };
+		39A102891C3F7B2600886ACB /* UIViewController+CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomNavController.m"; sourceTree = "<group>"; };
 		39AAAA521C3E869500D97A32 /* OrderCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCourseCell.h; sourceTree = "<group>"; };
 		39AAAA531C3E869500D97A32 /* OrderCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCourseCell.m; sourceTree = "<group>"; };
 		39AAAA581C3E91BD00D97A32 /* ESFrameworkCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ESFrameworkCore.framework; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				397A6EE41C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m */,
 				397A6EE51C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.h */,
 				397A6EE61C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m */,
+				39A102881C3F7B2600886ACB /* UIViewController+CustomNavController.h */,
+				39A102891C3F7B2600886ACB /* UIViewController+CustomNavController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				397A6EED1C3E5CD6006DB978 /* BaseCell.m in Sources */,
 				39733ABF1C3E68C100B0C3A3 /* OrderSectionHeader.m in Sources */,
 				397A6EF71C3E606A006DB978 /* Course.m in Sources */,
+				39A1028A1C3F7B2600886ACB /* UIViewController+CustomNavController.m in Sources */,
 				397A6EE81C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m in Sources */,
 				394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */,
 				3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */,

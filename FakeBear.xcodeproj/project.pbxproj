@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */; };
 		39733AB31C3E633600B0C3A3 /* BaseSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB21C3E633600B0C3A3 /* BaseSectionView.m */; };
 		39733AB61C3E63CE00B0C3A3 /* OrderSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB51C3E63CE00B0C3A3 /* OrderSectionView.m */; };
 		39733ABC1C3E68A200B0C3A3 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733ABB1C3E68A200B0C3A3 /* BaseView.m */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		394FF9601C3F4E9A009513BC /* BaseOrderHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOrderHeader.h; sourceTree = "<group>"; };
+		394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOrderHeader.m; sourceTree = "<group>"; };
 		39733AB11C3E633600B0C3A3 /* BaseSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSectionView.h; sourceTree = "<group>"; };
 		39733AB21C3E633600B0C3A3 /* BaseSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSectionView.m; sourceTree = "<group>"; };
 		39733AB41C3E63CE00B0C3A3 /* OrderSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSectionView.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				39733AB21C3E633600B0C3A3 /* BaseSectionView.m */,
 				39AAAA601C3EA2B500D97A32 /* BaseOrderView.h */,
 				39AAAA611C3EA2B500D97A32 /* BaseOrderView.m */,
+				394FF9601C3F4E9A009513BC /* BaseOrderHeader.h */,
+				394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */,
 			);
 			path = Super;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				39733ABF1C3E68C100B0C3A3 /* OrderSectionHeader.m in Sources */,
 				397A6EF71C3E606A006DB978 /* Course.m in Sources */,
 				397A6EE81C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m in Sources */,
+				394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */,
 				3994BC6B1C3E2F420017CA52 /* FriendshipController.m in Sources */,
 				39733AB31C3E633600B0C3A3 /* BaseSectionView.m in Sources */,
 				397A6EE71C3E5510006DB978 /* NSDictionary+NoNullObjectForKey.m in Sources */,

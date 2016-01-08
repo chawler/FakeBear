@@ -7,11 +7,11 @@
 //
 
 #import "OrderSectionView.h"
-#import "OrderSectionHeader.h"
+#import "BaseOrderHeader.h"
 
 @interface OrderSectionView()
 
-@property (nonatomic, strong) OrderSectionHeader *header;
+@property (nonatomic, strong) BaseOrderHeader *header;
 
 @end
 
@@ -21,65 +21,31 @@
 
 - (void)addSubviews
 {
-    [super addSubviews];
-    self.backgroundColor = HexRGB(0xF1F1F1);
-    self.imageView.image = [UIImage imageNamed:@"show_time_icon"];
     [self.contentView addSubview:self.header];
-    [self.contentView addSubview:self.textLabel];
 }
 
 - (void)defineLayout
 {
     [self.header mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.width.equalTo(self);
-        make.height.equalTo(@44);
-    }];
-    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.header.mas_bottom).with.offset(15);
-        make.left.equalTo(self.contentView.mas_left).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(12, 12));
-    }];
-    [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.imageView);
-        make.left.equalTo(self.imageView.mas_right).offset(10);
-        make.height.equalTo(@17);
-        make.width.lessThanOrEqualTo(@80);
+        make.edges.equalTo(self);
     }];
 }
 
 - (void)setFlag:(BOOL)flag
 {
-    if (flag) {
-        [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self);
-            make.width.equalTo(self);
-            make.height.equalTo(@44);
-        }];
-    } else {
-        [self.header mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self);
-            make.width.equalTo(self);
-            make.height.equalTo(@0);
-        }];
-        
-    }
-    self.header.hidden = !flag;
+    self.header.flag = flag;
     _flag = flag;
 }
 
 - (UILabel *)textLabel
 {
-    if (!_textLabel) {
-        _textLabel = [UIView createLabel:CGRectZero text:nil size:14 textColor:HexRGB(0x878787)];
-    }
-    return _textLabel;
+    return self.header.textLabel;
 }
 
-- (OrderSectionHeader *)header
+- (BaseOrderHeader *)header
 {
     if (!_header) {
-        _header = [[OrderSectionHeader alloc] init];
+        _header = [[BaseOrderHeader alloc] init];
     }
     return _header;
 }

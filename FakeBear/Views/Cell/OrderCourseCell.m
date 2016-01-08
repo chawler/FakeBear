@@ -21,6 +21,7 @@
 - (void)addSubviews
 {
     self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.orderView];
 }
 

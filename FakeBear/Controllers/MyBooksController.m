@@ -25,6 +25,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) OrderTableHeader *tableHeader;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) Order *inComingOrder;
 
 @end
 
@@ -46,6 +47,16 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         QRVerifyController *qrvc = [[QRVerifyController alloc] initWithOrder:order];
         [self.navigationController pushViewController:qrvc animated:YES];
     };
+    [ActionHelper sharedInstance].onInvite = ^(Order *order) {
+        order.status = 1;
+        self.tableView.tableHeaderView = [self newHeaderWithOrder:order];
+    };
+}
+
+- (void)setInComingOrder:(Order *)inComingOrder
+{
+    inComingOrder.status = 0;
+    _inComingOrder = inComingOrder;
 }
 
 - (void)setupWithResponse:(NSDictionary *)responseObject
@@ -53,14 +64,21 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     for (NSDictionary *dict in [[responseObject dictForKey:@"data"] arrayForKey:@"orders"]) {
         [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
     }
-    [self.tableHeader layoutSubviewsWithData:self.dataArray.firstObject];
-    self.tableView.tableHeaderView = self.tableHeader;
+    self.inComingOrder = self.dataArray.firstObject;
+    self.tableView.tableHeaderView = [self newHeaderWithOrder:self.inComingOrder];
     [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (OrderTableHeader *)newHeaderWithOrder:(Order *)order
+{
+    OrderTableHeader *header = [[OrderTableHeader alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 200)];
+    [header layoutSubviewsWithData:order];
+    return header;
 }
 
 #pragma mark - UITableView DataSource

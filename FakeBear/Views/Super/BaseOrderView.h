@@ -11,4 +11,6 @@
 
 @interface BaseOrderView : BaseView
 
+- (void)layoutMoreViews;
+
 @end

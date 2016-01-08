@@ -50,6 +50,10 @@
 
 - (void)layoutSubviewsWithData:(Order *)order
 {
+    if (order.status == 0) {
+        self.height = 290;
+        [self.contentView layoutMoreViews];
+    }
     [self.contentView layoutSubviewsWithData:order];
 }
 

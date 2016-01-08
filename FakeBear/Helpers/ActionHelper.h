@@ -13,6 +13,7 @@ typedef void(^CommonModelBlock)(id);
 @interface ActionHelper : NSObject
 
 @property (nonatomic, copy) CommonModelBlock onCheckin;
+@property (nonatomic, copy) CommonModelBlock onInvite;
 
 + (ActionHelper *)sharedInstance;
 

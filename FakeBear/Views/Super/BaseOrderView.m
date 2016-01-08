@@ -23,6 +23,10 @@
 @property (nonatomic, strong) UIImageView *locIcon;
 @property (nonatomic, strong) UILabel *locDetailLabel;
 @property (nonatomic, strong) UIImageView *sepLine;
+@property (nonatomic, strong) UILabel *noticeTitleLabel;
+@property (nonatomic, strong) UILabel *noticeContentLabel;
+@property (nonatomic, strong) UILabel *codeTitleLabel;
+@property (nonatomic, strong) UILabel *codeContentLabel;
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UIImageView *verLine;
 @property (nonatomic, strong) UIButton *rightBtn;
@@ -91,8 +95,8 @@
     }];
     [self.verLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.top.equalTo(self.sepLine.mas_bottom).offset(5);
         make.width.equalTo(@1);
+        make.height.equalTo(@30);
         make.bottom.equalTo(self.containerView.mas_bottom).offset(-5);
     }];
     [self.leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -109,6 +113,72 @@
     }];
 }
 
+- (void)layoutMoreViews
+{
+    [self.containerView addSubview:self.noticeTitleLabel];
+    [self.containerView addSubview:self.noticeContentLabel];
+    
+    [self.noticeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.sepLine.mas_bottom).offset(10);
+        make.left.equalTo(self.sepLine.mas_left);
+        make.width.lessThanOrEqualTo(@100);
+        make.height.equalTo(@18);
+    }];
+    [self.noticeContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.noticeTitleLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.noticeTitleLabel.mas_left);
+        make.right.equalTo(self.sepLine.mas_right);
+        make.height.equalTo(@17);
+    }];
+    
+    //分割线
+    UIImageView *sep1 = [self newSepLine];
+    [self.containerView addSubview:sep1];
+    [sep1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.noticeContentLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.sepLine.mas_left);
+        make.right.equalTo(self.sepLine.mas_right);
+        make.height.equalTo(@1);
+    }];
+    
+    [self.containerView addSubview:self.codeTitleLabel];
+    [self.containerView addSubview:self.codeContentLabel];
+    
+    [self.codeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sep1.mas_bottom).offset(10);
+        make.left.equalTo(sep1.mas_left);
+        make.width.lessThanOrEqualTo(@60);
+        make.height.equalTo(@17);
+    }];
+    [self.codeContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.codeTitleLabel.mas_right).offset(10);
+        make.centerY.equalTo(self.codeTitleLabel);
+        make.height.equalTo(@17);
+        make.width.lessThanOrEqualTo(@100);
+    }];
+    [self.statusLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(sep1.mas_right);
+        make.centerY.equalTo(self.codeContentLabel);
+        make.height.equalTo(@17);
+        make.width.lessThanOrEqualTo(@50);
+    }];
+    
+    //分割线
+    UIImageView *sep2 = [self newSepLine];
+    [self.containerView addSubview:sep2];
+    [sep2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.codeTitleLabel.mas_bottom).offset(10);
+        make.left.equalTo(self.sepLine.mas_left);
+        make.right.equalTo(self.sepLine.mas_right);
+        make.height.equalTo(@1);
+    }];
+}
+
+- (UIImageView *)newSepLine
+{
+    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gym-hor-line-light"]];
+}
+
 - (void)layoutSubviewsWithData:(Order *)order
 {
     _order = order;
@@ -120,7 +190,13 @@
     self.courseTimeLabel.text = [start append:@"-%@", end];
     
     if (order.status == 0) {
-        self.statusLabel.text = @"已过期";
+        if (self.containerView.subviews.count > 10) {
+            self.statusLabel.textColor = HexRGB(0xFF5126);
+            self.statusLabel.text = @"未验证";
+            self.codeContentLabel.text = order.orderCode;
+        } else {
+            self.statusLabel.text = @"已过期";
+        }
     } else {
         self.statusLabel.text = @"已验证";
     }
@@ -132,7 +208,12 @@
     } else {
         [self.leftBtn setTitle:@"健身打卡" forState:UIControlStateNormal];
     }
-    self.leftBtn.enabled = self.rightBtn.enabled = (order.status > 0);
+    if (self.containerView.subviews.count> 10) {
+        [self.leftBtn setTitle:@"健身邀约" forState:UIControlStateNormal];
+        [self.rightBtn setTitle:@"扫码签到" forState:UIControlStateNormal];
+    } else {
+        self.leftBtn.enabled = self.rightBtn.enabled = (order.status > 0);
+    }
 }
 
 - (UIView *)containerView
@@ -194,6 +275,38 @@
     return _locDetailLabel;
 }
 
+- (UILabel *)noticeTitleLabel
+{
+    if (!_noticeTitleLabel) {
+        _noticeTitleLabel = [UIView createLabel:CGRectZero text:@"项目注意事项" size:15 textColor:HexRGB(0xFFB53F)];
+    }
+    return _noticeTitleLabel;
+}
+
+- (UILabel *)noticeContentLabel
+{
+    if (!_noticeContentLabel) {
+        _noticeContentLabel = [UIView createLabel:CGRectZero text:@"暂无注意事项" size:14 textColor:HexRGB(0x888888)];
+    }
+    return _noticeContentLabel;
+}
+
+- (UILabel *)codeTitleLabel
+{
+    if (!_codeTitleLabel) {
+        _codeTitleLabel = [UIView createLabel:CGRectZero text:@"验证码：" size:14 textColor:HexRGB(0x878787)];
+    }
+    return _codeTitleLabel;
+}
+
+- (UILabel *)codeContentLabel
+{
+    if (!_codeContentLabel) {
+        _codeContentLabel = [UIView createLabel:CGRectZero text:nil size:14 textColor:HexRGB(0x666666)];
+    }
+    return _codeContentLabel;
+}
+
 - (UIImageView *)sepLine
 {
     if (!_sepLine) {
@@ -209,7 +322,7 @@
         _leftBtn = [UIView createButton:CGRectZero size:17 title:@"健身打卡" titleColor:HexRGB(0x555555)];
         [_leftBtn setTitleColor:HexRGB(0xAAAAAA) forState:UIControlStateDisabled];
         [_leftBtn addTargetActionWithBlock:^{
-            [ActionHelper sharedInstance].onCheckin(__weakSelf.order);
+            [ActionHelper sharedInstance].onInvite(__weakSelf.order);
         }];
     }
     return _leftBtn;
@@ -218,7 +331,7 @@
 - (UIImageView *)verLine
 {
     if (!_verLine) {
-        _verLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gym-vert-line-light"]];
+        _verLine = [self newSepLine];
     }
     return _verLine;
 }
@@ -226,8 +339,12 @@
 - (UIButton *)rightBtn
 {
     if (!_rightBtn) {
+        ESWeakSelf;
         _rightBtn = [UIView createButton:CGRectZero size:17 title:@"点评一下" titleColor:HexRGB(0x555555)];;
         [_rightBtn setTitleColor:HexRGB(0xAAAAAA) forState:UIControlStateDisabled];
+        [_rightBtn addTargetActionWithBlock:^{
+            [ActionHelper sharedInstance].onCheckin(__weakSelf.order);
+        }];
     }
     return _rightBtn;
 }

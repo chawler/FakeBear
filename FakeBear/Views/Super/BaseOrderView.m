@@ -189,7 +189,7 @@
     NSString *end = [order.course.endProperty stringWithFormat:@"HH:mm"];
     self.courseTimeLabel.text = [start append:@"-%@", end];
     
-    if (order.status == 0) {
+    if (!order.status) {
         if (self.containerView.subviews.count > 10) {
             self.statusLabel.textColor = HexRGB(0xFF5126);
             self.statusLabel.text = @"未验证";

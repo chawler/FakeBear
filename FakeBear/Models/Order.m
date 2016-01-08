@@ -47,7 +47,7 @@ NSString *const kOrderGym = @"gym";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.status = [[self objectOrNilForKey:kOrderStatus fromDictionary:dict] integerValue];
+            self.status = [[self objectOrNilForKey:kOrderStatus fromDictionary:dict] boolValue];
             self.xxquan = [Xxquan modelObjectWithDictionary:[dict objectForKey:kOrderXxquan]];
             self.orderIdentifier = [[self objectOrNilForKey:kOrderId fromDictionary:dict] integerValue];
             self.course = [Course modelObjectWithDictionary:[dict objectForKey:kOrderCourse]];
@@ -63,7 +63,7 @@ NSString *const kOrderGym = @"gym";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:[NSNumber numberWithInteger:self.status] forKey:kOrderStatus];
+    [mutableDict setValue:[NSNumber numberWithBool:self.status] forKey:kOrderStatus];
     [mutableDict setValue:[self.xxquan dictionaryRepresentation] forKey:kOrderXxquan];
     [mutableDict setValue:[NSNumber numberWithInteger:self.orderIdentifier] forKey:kOrderId];
     [mutableDict setValue:[self.course dictionaryRepresentation] forKey:kOrderCourse];
@@ -92,7 +92,7 @@ NSString *const kOrderGym = @"gym";
 {
     self = [super init];
 
-    self.status = [aDecoder decodeIntegerForKey:kOrderStatus];
+    self.status = [aDecoder decodeBoolForKey:kOrderStatus];
     self.xxquan = [aDecoder decodeObjectForKey:kOrderXxquan];
     self.orderIdentifier = [aDecoder decodeIntegerForKey:kOrderId];
     self.course = [aDecoder decodeObjectForKey:kOrderCourse];

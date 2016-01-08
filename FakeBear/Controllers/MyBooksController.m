@@ -48,14 +48,14 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         [self.navigationController pushViewController:qrvc animated:YES];
     };
     [ActionHelper sharedInstance].onInvite = ^(Order *order) {
-        order.status = 1;
+        order.status = !order.status;
         self.tableView.tableHeaderView = [self newHeaderWithOrder:order];
     };
 }
 
 - (void)setInComingOrder:(Order *)inComingOrder
 {
-    inComingOrder.status = 0;
+    inComingOrder.status = NO;
     _inComingOrder = inComingOrder;
 }
 

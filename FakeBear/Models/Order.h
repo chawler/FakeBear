@@ -11,7 +11,7 @@
 
 @interface Order : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) Xxquan *xxquan;
 @property (nonatomic, assign) NSInteger orderIdentifier;
 @property (nonatomic, strong) Course *course;

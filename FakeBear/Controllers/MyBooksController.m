@@ -64,7 +64,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     for (NSDictionary *dict in [[responseObject dictForKey:@"data"] arrayForKey:@"orders"]) {
         [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
     }
-    self.inComingOrder = self.dataArray.firstObject;
+    self.inComingOrder = [self.dataArray.firstObject copy];
     self.tableView.tableHeaderView = [self newHeaderWithOrder:self.inComingOrder];
     [self.tableView reloadData];
 }

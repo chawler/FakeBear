@@ -156,10 +156,15 @@
 - (UIButton *)entryBtn
 {
     if (!_entryBtn) {
+        ESWeakSelf;
         _entryBtn = [UIView createButton:CGRectZero size:16 title:@"确定" titleColor:[UIColor whiteColor]];
         _entryBtn.layer.masksToBounds = YES;
         _entryBtn.layer.cornerRadius = 5.0f;
         _entryBtn.backgroundColor = HexRGB(0xf81f18);
+        [_entryBtn addTargetActionWithBlock:^{
+            ESStrongSelf;
+            [_self onBackNav:nil];
+        }];
     }
     return _entryBtn;
 }

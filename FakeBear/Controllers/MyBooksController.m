@@ -14,12 +14,14 @@
 #import "Course.h"
 #import "NSDate+Helper.h"
 #import "OrderCourseCell.h"
+#import "OrderTableHeader.h"
 
 static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdentifier";
 
 @interface MyBooksController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) OrderTableHeader *tableHeader;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
@@ -30,6 +32,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     
+    self.tableView.tableHeaderView = self.tableHeader;
     [self.tableView registerClass:[OrderSectionView class] forHeaderFooterViewReuseIdentifier:OrderSectionViewReuseIdentifier];
     
     [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @1} success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -44,6 +47,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     for (NSDictionary *dict in [[responseObject dictForKey:@"data"] arrayForKey:@"orders"]) {
         [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
     }
+    [self.tableHeader layoutSubviewsWithData:self.dataArray.firstObject];
     [self.tableView reloadData];
 }
 
@@ -118,6 +122,14 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
+}
+
+- (OrderTableHeader *)tableHeader
+{
+    if (!_tableHeader) {
+        _tableHeader = [[OrderTableHeader alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 200)];
+    }
+    return _tableHeader;
 }
 
 - (NSMutableArray *)dataArray

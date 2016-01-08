@@ -29,7 +29,7 @@
 - (void)defineLayout
 {
     [self.topLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
+        make.top.equalTo(self.mas_top).offset(-0.5);
         make.width.equalTo(self);
         make.height.equalTo(@1);
     }];
@@ -45,6 +45,11 @@
     }];
 }
 
+- (void)setHideTopLine:(BOOL)hideTopLine
+{
+    self.topLine.hidden = hideTopLine;
+}
+
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
@@ -56,7 +61,7 @@
 - (UIImageView *)topLine
 {
     if (!_topLine) {
-        _topLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"order-hor-line"]];
+        _topLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gym-hor-line"]];
         _topLine.contentMode = UIViewContentModeScaleToFill;
     }
     return _topLine;
@@ -65,7 +70,7 @@
 - (UIImageView *)bottomLine
 {
     if (!_bottomLine) {
-        _bottomLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"order-hor-line"]];
+        _bottomLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gym-hor-line"]];
         _topLine.contentMode = UIViewContentModeScaleToFill;
     }
     return _bottomLine;

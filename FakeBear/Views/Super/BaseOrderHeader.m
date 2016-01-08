@@ -67,6 +67,13 @@
     _flag = flag;
 }
 
+- (void)setTips:(NSString *)tips
+{
+    _tips = tips;
+    self.header.hideTopLine = YES;
+    self.header.titleLabel.text = tips;
+}
+
 - (UIImageView *)imageView
 {
     if (!_imageView) {

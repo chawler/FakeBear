@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) BOOL flag;
 @property (nonatomic, strong, readonly) UILabel *textLabel;
+@property (nonatomic, copy) NSString *tips;
 
 @end

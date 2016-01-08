@@ -30,6 +30,7 @@
 {
     [self addSubviews];
     [self defineLayout];
+    [self setupData];
 }
 
 - (void)addSubviews
@@ -38,6 +39,11 @@
 }
 
 - (void)defineLayout
+{
+    
+}
+
+- (void)setupData
 {
     
 }

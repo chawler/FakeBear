@@ -10,6 +10,7 @@
 
 @interface OrderSectionHeader : BaseView
 
+@property (nonatomic, assign) BOOL hideTopLine;
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
 
 @end

@@ -37,8 +37,16 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     
     [self.tableView registerClass:[OrderSectionView class] forHeaderFooterViewReuseIdentifier:OrderSectionViewReuseIdentifier];
     
+    [self setupWithResponse:[NSKeyedUnarchiver unarchiveObjectWithFile:[DOCUMENT_FOLDER appendPathComponent:@"data"]]];
     [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @2} success:^(NSURLSessionDataTask *task, id responseObject) {
         [self setupWithResponse:responseObject];
+        [[NSKeyedArchiver archivedDataWithRootObject:responseObject] writeToFile:[DOCUMENT_FOLDER appendPathComponent:@"data"] atomically:YES withBlock:^(BOOL result) {
+            if (result) {
+                NSLog(@"写入成功");
+            } else {
+                NSLog(@"写入失败");
+            }
+        }];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"---error: %@", error);
     }];
@@ -61,12 +69,16 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
 
 - (void)setupWithResponse:(NSDictionary *)responseObject
 {
-    for (NSDictionary *dict in [[responseObject dictForKey:@"data"] arrayForKey:@"orders"]) {
-        [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
+    NSArray *orders = [[responseObject dictForKey:@"data"] arrayForKey:@"orders"];
+    if (orders.count > 0) {
+        [self.dataArray removeAllObjects];
+        for (NSDictionary *dict in orders) {
+            [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
+        }
+        self.inComingOrder = [self.dataArray.firstObject copy];
+        self.tableView.tableHeaderView = [self newHeaderWithOrder:self.inComingOrder];
+        [self.tableView reloadData];
     }
-    self.inComingOrder = [self.dataArray.firstObject copy];
-    self.tableView.tableHeaderView = [self newHeaderWithOrder:self.inComingOrder];
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

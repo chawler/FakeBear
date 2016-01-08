@@ -15,6 +15,7 @@
 
 #define NavCtrl(vCtrl) [[UINavigationController alloc] initWithRootViewController:vCtrl]
 #define kFont(args) [UIFont systemFontOfSize:args]
+#define DOCUMENT_FOLDER [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 #import <Masonry.h>
 #import <ESFrameworkCore/ESFrameworkCore.h>

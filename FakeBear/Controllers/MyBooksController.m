@@ -16,6 +16,7 @@
 #import "OrderCourseCell.h"
 #import "OrderTableHeader.h"
 #import "ActionHelper.h"
+#import "QRVerifyController.h"
 
 static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdentifier";
 
@@ -33,17 +34,17 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
     
-    self.tableView.tableHeaderView = self.tableHeader;
     [self.tableView registerClass:[OrderSectionView class] forHeaderFooterViewReuseIdentifier:OrderSectionViewReuseIdentifier];
     
-    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @1} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @2} success:^(NSURLSessionDataTask *task, id responseObject) {
         [self setupWithResponse:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"---error: %@", error);
     }];
     
     [ActionHelper sharedInstance].onCheckin = ^(Order *order) {
-        NSLog(@"%@", order);
+        QRVerifyController *qrvc = [[QRVerifyController alloc] initWithOrder:order];
+        [self.navigationController pushViewController:qrvc animated:YES];
     };
 }
 
@@ -53,6 +54,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         [self.dataArray addObject:[[Order alloc] initWithDictionary:dict]];
     }
     [self.tableHeader layoutSubviewsWithData:self.dataArray.firstObject];
+    self.tableView.tableHeaderView = self.tableHeader;
     [self.tableView reloadData];
 }
 

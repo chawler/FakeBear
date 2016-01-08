@@ -10,6 +10,7 @@
 		394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */; };
 		394FF9651C3F50E1009513BC /* OrderTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9641C3F50E1009513BC /* OrderTableHeader.m */; };
 		394FF96B1C3F56E3009513BC /* ActionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF96A1C3F56E3009513BC /* ActionHelper.m */; };
+		394FF96E1C3F5ADE009513BC /* QRVerifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF96D1C3F5ADE009513BC /* QRVerifyController.m */; };
 		39733AB31C3E633600B0C3A3 /* BaseSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB21C3E633600B0C3A3 /* BaseSectionView.m */; };
 		39733AB61C3E63CE00B0C3A3 /* OrderSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733AB51C3E63CE00B0C3A3 /* OrderSectionView.m */; };
 		39733ABC1C3E68A200B0C3A3 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39733ABB1C3E68A200B0C3A3 /* BaseView.m */; };
@@ -50,6 +51,8 @@
 		394FF9641C3F50E1009513BC /* OrderTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableHeader.m; sourceTree = "<group>"; };
 		394FF9691C3F56E3009513BC /* ActionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionHelper.h; sourceTree = "<group>"; };
 		394FF96A1C3F56E3009513BC /* ActionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionHelper.m; sourceTree = "<group>"; };
+		394FF96C1C3F5ADE009513BC /* QRVerifyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRVerifyController.h; sourceTree = "<group>"; };
+		394FF96D1C3F5ADE009513BC /* QRVerifyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRVerifyController.m; sourceTree = "<group>"; };
 		39733AB11C3E633600B0C3A3 /* BaseSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSectionView.h; sourceTree = "<group>"; };
 		39733AB21C3E633600B0C3A3 /* BaseSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSectionView.m; sourceTree = "<group>"; };
 		39733AB41C3E63CE00B0C3A3 /* OrderSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSectionView.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				3994BC5D1C3D797A0017CA52 /* MainTabBarController.m */,
 				3994BC631C3D79EA0017CA52 /* MyBooksController.h */,
 				3994BC641C3D79EA0017CA52 /* MyBooksController.m */,
+				394FF96C1C3F5ADE009513BC /* QRVerifyController.h */,
+				394FF96D1C3F5ADE009513BC /* QRVerifyController.m */,
 				3994BC661C3E2F2A0017CA52 /* FitnessController.h */,
 				3994BC671C3E2F2A0017CA52 /* FitnessController.m */,
 				3994BC691C3E2F420017CA52 /* FriendshipController.h */,
@@ -470,6 +475,7 @@
 				39733AC51C3E6E5F00B0C3A3 /* UIView+Utils.m in Sources */,
 				39AAAA541C3E869500D97A32 /* OrderCourseCell.m in Sources */,
 				3994BC441C3D73610017CA52 /* main.m in Sources */,
+				394FF96E1C3F5ADE009513BC /* QRVerifyController.m in Sources */,
 				39733AC91C3E6F4300B0C3A3 /* UIPlaceHolderTextView.m in Sources */,
 				394FF96B1C3F56E3009513BC /* ActionHelper.m in Sources */,
 				394FF9651C3F50E1009513BC /* OrderTableHeader.m in Sources */,

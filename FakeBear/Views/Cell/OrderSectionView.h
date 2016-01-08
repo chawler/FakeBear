@@ -11,6 +11,5 @@
 @interface OrderSectionView : BaseSectionView
 
 @property (nonatomic, assign) BOOL flag;
-@property (nonatomic, copy) NSString *title;
 
 @end

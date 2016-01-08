@@ -17,14 +17,15 @@
 
 @implementation OrderSectionView
 
+@synthesize textLabel = _textLabel;
+
 - (void)addSubviews
 {
     [super addSubviews];
     self.backgroundColor = HexRGB(0xF1F1F1);
     self.imageView.image = [UIImage imageNamed:@"show_time_icon"];
-    self.textLabel.font = kFont(14);
-    self.textLabel.textColor = HexRGB(0x878787);
     [self.contentView addSubview:self.header];
+    [self.contentView addSubview:self.textLabel];
 }
 
 - (void)defineLayout
@@ -38,6 +39,12 @@
         make.top.equalTo(self.header.mas_bottom).with.offset(15);
         make.left.equalTo(self.contentView.mas_left).with.offset(10);
         make.size.mas_equalTo(CGSizeMake(12, 12));
+    }];
+    [self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.imageView);
+        make.left.equalTo(self.imageView.mas_right).offset(10);
+        make.height.equalTo(@17);
+        make.width.lessThanOrEqualTo(@80);
     }];
 }
 
@@ -61,10 +68,12 @@
     _flag = flag;
 }
 
-- (void)layoutSubviews
+- (UILabel *)textLabel
 {
-    [super layoutSubviews];
-    self.textLabel.x += 15;
+    if (!_textLabel) {
+        _textLabel = [UIView createLabel:CGRectZero text:nil size:14 textColor:HexRGB(0x878787)];
+    }
+    return _textLabel;
 }
 
 - (OrderSectionHeader *)header

@@ -54,13 +54,13 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     
     [ActionHelper sharedInstance].onCheckin = ^(Order *order) {
         QRScanController *qrsc = [[QRScanController alloc] initWithOrder:order];
-//        QRVerifyController *qrvc = [[QRVerifyController alloc] initWithOrder:order];
         [self.navigationController pushViewController:qrsc animated:YES];
     };
     [ActionHelper sharedInstance].onInvite = ^(Order *order) {
         order.status = !order.status;
         self.tableView.tableHeaderView = [self newHeaderWithOrder:order];
     };
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doReceiveOrder:) name:kReceiveOrderNote object:nil];
 }
 
 - (void)setInComingOrder:(Order *)inComingOrder
@@ -81,6 +81,13 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         self.tableView.tableHeaderView = [self newHeaderWithOrder:self.inComingOrder];
         [self.tableView reloadData];
     }
+}
+
+- (void)doReceiveOrder:(NSNotification *)note
+{
+    Order *order = note.object;
+    order.status = !order.status;
+    self.tableView.tableHeaderView = [self newHeaderWithOrder:order];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -177,6 +184,11 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

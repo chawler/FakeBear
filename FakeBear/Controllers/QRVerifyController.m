@@ -40,6 +40,7 @@
 
 - (void)onBackNav:(id)sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReceiveOrderNote object:self.order];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -168,7 +169,7 @@
         _entryBtn.backgroundColor = HexRGB(0xf81f18);
         [_entryBtn addTargetActionWithBlock:^{
             ESStrongSelf;
-            [_self.navigationController popToRootViewControllerAnimated:YES];
+            [_self onBackNav:nil];
         }];
     }
     return _entryBtn;

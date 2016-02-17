@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392C6BB21C74AF430007D9BD /* QRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 392C6BB11C74AF430007D9BD /* QRCodeView.m */; };
+		392C6BB51C74B1340007D9BD /* QRScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392C6BB41C74B1340007D9BD /* QRScanController.m */; };
 		394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */; };
 		394FF9651C3F50E1009513BC /* OrderTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF9641C3F50E1009513BC /* OrderTableHeader.m */; };
 		394FF96B1C3F56E3009513BC /* ActionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 394FF96A1C3F56E3009513BC /* ActionHelper.m */; };
@@ -46,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		392C6BB01C74AF430007D9BD /* QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeView.h; sourceTree = "<group>"; };
+		392C6BB11C74AF430007D9BD /* QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeView.m; sourceTree = "<group>"; };
+		392C6BB31C74B1340007D9BD /* QRScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanController.h; sourceTree = "<group>"; };
+		392C6BB41C74B1340007D9BD /* QRScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanController.m; sourceTree = "<group>"; };
 		394FF9601C3F4E9A009513BC /* BaseOrderHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOrderHeader.h; sourceTree = "<group>"; };
 		394FF9611C3F4E9A009513BC /* BaseOrderHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOrderHeader.m; sourceTree = "<group>"; };
 		394FF9631C3F50E1009513BC /* OrderTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableHeader.h; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 			children = (
 				39733AC71C3E6F4300B0C3A3 /* UIPlaceHolderTextView.h */,
 				39733AC81C3E6F4300B0C3A3 /* UIPlaceHolderTextView.m */,
+				392C6BB01C74AF430007D9BD /* QRCodeView.h */,
+				392C6BB11C74AF430007D9BD /* QRCodeView.m */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -289,6 +297,8 @@
 				3994BC5D1C3D797A0017CA52 /* MainTabBarController.m */,
 				3994BC631C3D79EA0017CA52 /* MyBooksController.h */,
 				3994BC641C3D79EA0017CA52 /* MyBooksController.m */,
+				392C6BB31C74B1340007D9BD /* QRScanController.h */,
+				392C6BB41C74B1340007D9BD /* QRScanController.m */,
 				394FF96C1C3F5ADE009513BC /* QRVerifyController.h */,
 				394FF96D1C3F5ADE009513BC /* QRVerifyController.m */,
 				3994BC661C3E2F2A0017CA52 /* FitnessController.h */,
@@ -459,9 +469,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392C6BB21C74AF430007D9BD /* QRCodeView.m in Sources */,
 				397A6EED1C3E5CD6006DB978 /* BaseCell.m in Sources */,
 				39733ABF1C3E68C100B0C3A3 /* OrderSectionHeader.m in Sources */,
 				397A6EF71C3E606A006DB978 /* Course.m in Sources */,
+				392C6BB51C74B1340007D9BD /* QRScanController.m in Sources */,
 				39A1028A1C3F7B2600886ACB /* UIViewController+CustomNavController.m in Sources */,
 				397A6EE81C3E5510006DB978 /* NSMutableDictionary+SetNoNilObjectForKey.m in Sources */,
 				394FF9621C3F4E9A009513BC /* BaseOrderHeader.m in Sources */,
@@ -593,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,6 +627,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

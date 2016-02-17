@@ -8,6 +8,9 @@
 
 #import "HttpClient.h"
 
+#define LU_TOKEN = @"remember_token=18621987299|03f9c5c9bfe5e6b31a1c0e968ba571d2672c6122"
+#define ME_TOKEN = @"remember_token=15626065551|fbc5817651db96b5809fab4dd77b899714dcb985"
+
 @interface HttpClient()
 
 @property (nonatomic, readonly) NSHTTPCookieStorage *cookieStorage;

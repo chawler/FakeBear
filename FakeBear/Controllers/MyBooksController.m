@@ -17,6 +17,7 @@
 #import "OrderTableHeader.h"
 #import "ActionHelper.h"
 #import "QRVerifyController.h"
+#import "QRScanController.h"
 
 static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdentifier";
 
@@ -38,7 +39,7 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     [self.tableView registerClass:[OrderSectionView class] forHeaderFooterViewReuseIdentifier:OrderSectionViewReuseIdentifier];
     
     [self setupWithResponse:[NSKeyedUnarchiver unarchiveObjectWithFile:[DOCUMENT_FOLDER appendPathComponent:@"data"]]];
-    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @2} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[HttpClient sharedInstance] GET:@"/client/user/orders/expired" parameters:@{@"page": @1} success:^(NSURLSessionDataTask *task, id responseObject) {
         [self setupWithResponse:responseObject];
         [[NSKeyedArchiver archivedDataWithRootObject:responseObject] writeToFile:[DOCUMENT_FOLDER appendPathComponent:@"data"] atomically:YES withBlock:^(BOOL result) {
             if (result) {
@@ -52,8 +53,9 @@ static NSString *OrderSectionViewReuseIdentifier = @"OrderSectionViewReuseIdenti
     }];
     
     [ActionHelper sharedInstance].onCheckin = ^(Order *order) {
-        QRVerifyController *qrvc = [[QRVerifyController alloc] initWithOrder:order];
-        [self.navigationController pushViewController:qrvc animated:YES];
+        QRScanController *qrsc = [[QRScanController alloc] initWithOrder:order];
+//        QRVerifyController *qrvc = [[QRVerifyController alloc] initWithOrder:order];
+        [self.navigationController pushViewController:qrsc animated:YES];
     };
     [ActionHelper sharedInstance].onInvite = ^(Order *order) {
         order.status = !order.status;

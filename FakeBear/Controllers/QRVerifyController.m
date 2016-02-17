@@ -38,6 +38,11 @@
     return self;
 }
 
+- (void)onBackNav:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"扫码验证";
@@ -163,7 +168,7 @@
         _entryBtn.backgroundColor = HexRGB(0xf81f18);
         [_entryBtn addTargetActionWithBlock:^{
             ESStrongSelf;
-            [_self onBackNav:nil];
+            [_self.navigationController popToRootViewControllerAnimated:YES];
         }];
     }
     return _entryBtn;

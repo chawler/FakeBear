@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     
     titles = @[@"我的预约", @"开始健身", @"小熊圈", @"个人中心"];
-    icons = @[@"mybooks_icon", @"fitness_icon", @"friendship_icon", @"profile_icon"];
+    icons = @[@"mybooks_gray_icon", @"fitness_gray_icon", @"friendship_gray_icon", @"profile_gray_icon"];
     actionIcons = @[@"mybooks_action_icon", @"fitness_action_icon", @"friendship_action_icon", @"profile_action_icon"];
     
     MyBooksController *myBooksController = [[MyBooksController alloc] init];

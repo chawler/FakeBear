@@ -117,8 +117,9 @@ static char leftNavItemkey;
 
 - (void)setDefaultNavigationLeftItemWithOffset:(CGFloat)offset
 {
-    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_gray_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBackNav:)];
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_gray_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(onBackNav:)];
     [backBarButtonItem setBackgroundVerticalPositionAdjustment:offset forBarMetrics:UIBarMetricsDefault];
+    backBarButtonItem.tintColor = [UIColor whiteColor];
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = 0;
     self.navigationItem.leftBarButtonItems = @[fixedSpace, backBarButtonItem];

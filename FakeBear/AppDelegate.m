@@ -19,7 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: HexRGB(0x4C4E53)}];
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    [navBar setBackgroundImage:[UIImage imageWithColor:HexRGB(0xfd6e37) cornerRadius:0] forBarMetrics:UIBarMetricsDefault];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: HexRGB(0xFF5126)} forState:UIControlStateSelected];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -53,7 +53,7 @@
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
-        _titleLabel = [UIView createLabel:CGRectZero text:@"已经结束" size:17 textColor:HexRGB(0xFF510D)];
+        _titleLabel = [UIView createLabel:CGRectZero text:@"已结束" size:17 textColor:HexRGB(0x4C4E53)];
     }
     return _titleLabel;
 }
